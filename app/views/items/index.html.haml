@@ -8,13 +8,14 @@
     %th
     %th
 
-  - @items.each do |item|
+  -  assigned_items.each do |item|
     %tr
-      %td= item.name
+      %td HEY 
       %td= item.date_assigned
-      %td= link_to 'Show', item
-      %td= link_to 'Edit', edit_item_path(item)
-      %td= link_to 'Destroy', item, :confirm => 'Are you sure?', :method => :delete
+      -if current_user.admin
+        %td= link_to 'Show', item
+        %td= link_to 'Edit', edit_item_path(item)
+        %td= link_to 'Destroy', item, :confirm => 'Are you sure?', :method => :delete
 
 %br
 
