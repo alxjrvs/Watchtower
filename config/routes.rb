@@ -6,7 +6,7 @@ Watchtower::Application.routes.draw do
   resources :users
 
   resources :items
-  Item.types.each { |i| resources i.to_sym}
+  resources :books
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

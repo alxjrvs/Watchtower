@@ -10,10 +10,7 @@ class User < ActiveRecord::Base
   #Devise End
 
   has_many :items
-
-  Item.types.each do |i|
-    has_many i.to_sym
-  end
+  has_many :books
   attr_accessible :name, :admin
   validates :email, :format => { :with => /\S+@spandexless.com/, :message => "Must be from Spandexless."}
 end
