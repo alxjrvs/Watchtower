@@ -14,6 +14,6 @@ class User < ActiveRecord::Base
   Item.types.each do |i|
     has_many i.to_sym
   end
-  attr_accessible :name
+  attr_accessible :name, :admin
   validates :email, :format => { :with => /\S+@spandexless.com/, :message => "Must be from Spandexless."}
 end

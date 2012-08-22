@@ -6,6 +6,7 @@ class Item < ActiveRecord::Base
   def self.types
     a = []
     self.all.each do |i|
+      next if i.type == nil
       a << i.type.to_s.downcase.pluralize
     end
     a.uniq
