@@ -18,10 +18,11 @@ end
 
 gem 'bluecloth', '>= 2.0.0'
 gem 'devise'
-gem 'hpricot'
 gem 'pg'
 gem 'heroku'
 gem 'haml-rails'
+gem 'hpricot'
+gem 'ruby_parser'
 gem 'pry'
 gem 'simple_form'
 gem 'rb-readline'
