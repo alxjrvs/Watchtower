@@ -1,15 +1,20 @@
 %h1 Listing items
 
 %table
-  %tr
-    %th Name
-    %th Date assigned
-    %th
-    %th
-    %th
 
-  -  assigned_items.each do |item|
-    %tr
+  %tr
+    %h4 Assigned
+    -  assigned_items.each do |item|
+      %td "Assigned to #{item.user.name}"
+      %td= item.date_assigned
+      -if current_user.admin
+        %td= link_to 'Show', item
+        %td= link_to 'Edit', edit_item_path(item)
+        %td= link_to 'Destroy', item, :confirm => 'Are you sure?', :method => :delete
+%br
+  %tr
+    %h4 Unassigned
+    -  unassigned_items.each do |item|
       %td HEY 
       %td= item.date_assigned
       -if current_user.admin
