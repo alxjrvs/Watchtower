@@ -21,12 +21,15 @@ ActiveRecord::Schema.define(:version => 20120822050226) do
   create_table "items", :force => true do |t|
     t.string   "name"
     t.date     "date_assigned"
+    t.string   "type"
+    t.integer  "user_id"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end
 
   create_table "users", :force => true do |t|
     t.string   "name"
+    t.string   "type"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "email",                  :default => "", :null => false
