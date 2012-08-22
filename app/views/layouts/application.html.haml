@@ -31,8 +31,6 @@
               %li= link_to "Link 1", "/path1"
               %li= link_to "Link 2", "/path2"
               %li= link_to "Link 3", "/path3"
-              %p.notice= notice
-              %p.alert=  alert
 
     .container-fluid
 
@@ -44,11 +42,17 @@
               %li= link_to "Link 1", "/path1"
               %li= link_to "Link 2", "/path2"
               %li= link_to "Link 3", "/path3"
+              - if user_signed_in?
+                =link_to 'Logout', destroy_user_session_path, method: :delete
+              -else
+                =link_to 'Sign Up', new_user_registration_path
+              %p.notice= notice
+              %p.alert=  alert
         .span9
           = yield
-    
+
       %footer
-        %p &copy; Company 2012
+        %p &copy; Alex M Jarvis 2012
     /
       Javascripts
       \==================================================
