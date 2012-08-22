@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
+  #Devise End
+  has_many :items
   attr_accessible :name
-  validates :email, :format { :with => /\S+@spandexless.com/, :message => "Must be from Spandexless."}
+  validates :email, :format => { :with => /\S+@spandexless.com/, :message => "Must be from Spandexless."}
 end
