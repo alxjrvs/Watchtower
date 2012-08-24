@@ -15,8 +15,9 @@
   %tr
     %h4 Unassigned
     -  unassigned_items.each do |item|
-      %td HEY 
+      %td item.
       %td= item.date_assigned
+    
       -if current_user.admin
         %td= link_to 'Show', item
         %td= link_to 'Edit', edit_item_path(item)
