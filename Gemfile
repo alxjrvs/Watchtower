@@ -14,11 +14,16 @@ group :development, :test do
   gem 'factory_girl_rails', "~> 4.0"
   gem 'factory_girl'
   gem 'rspec-subject-extensions'
+  gem 'guard-rails'
+  gem 'capybara'
+end
+
+group :production do 
+  gem 'pg'
 end
 
 gem 'bluecloth', '>= 2.0.0'
 gem 'devise'
-gem 'pg'
 gem 'heroku'
 gem 'haml-rails'
 gem 'hpricot'
