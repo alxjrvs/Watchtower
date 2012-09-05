@@ -3,11 +3,14 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    @items = Item.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @items }
+    if current_user
+      @items = Item.all
+      respond_to do |format|
+        format.html # index.html.erb
+        format.json { render json: @items }
+      end
+    else
+      redirect_to new_user_session_path
     end
   end
 

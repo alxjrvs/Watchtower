@@ -17,12 +17,11 @@
     -  unassigned_items.each do |item|
       %td item.
       %td= item.date_assigned
-    
       -if current_user.admin
         %td= link_to 'Show', item
         %td= link_to 'Edit', edit_item_path(item)
         %td= link_to 'Destroy', item, :confirm => 'Are you sure?', :method => :delete
 
-%br
+        %br
 
-= link_to 'New Item', new_item_path
+        = link_to 'New Item', new_item_path
