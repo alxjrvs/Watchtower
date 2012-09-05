@@ -2,7 +2,11 @@
 
 FactoryGirl.define do
   factory :item do
-    name "MyString"
-    date_assigned "2012-08-22"
+    name "Interview with Jim Zub"
+
+    factory :assigned_item, class: Item  do
+      date_assigned "01-20-1988"
+      user
+    end
   end
 end
