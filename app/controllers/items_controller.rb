@@ -84,4 +84,10 @@ class ItemsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def assign
+    @item = Item.find(params[:id])
+    current_user.items << @item
+    redirect_to @item, notice: "Item was assigned"
+  end
 end

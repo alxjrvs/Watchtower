@@ -15,6 +15,4 @@ module ItemsHelper
     end
     a
   end
-
-
 end
