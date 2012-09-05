@@ -20,6 +20,7 @@ end
 
 group :production do 
   gem 'pg'
+  gem 'sendgrid'
 end
 
 gem 'bluecloth', '>= 2.0.0'
