@@ -5,8 +5,8 @@ FactoryGirl.define do
     name "Interview with Jim Zub"
 
     factory :assigned_item, class: Item  do
-      date_assigned "01-20-1988"
-      user
+      date_assigned  Time.now
+      user User.first
     end
   end
 end
