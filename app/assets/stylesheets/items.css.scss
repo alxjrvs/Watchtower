@@ -1,3 +1,18 @@
 // Place all the styles related to the Items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+div.items_block { 
+  clear:both;
+}
+
+div.assigned_item p { 
+
+  float:left;
+  margin: 2%;
+}
+
+div.assigned_item { 
+clear:both;
+}
+

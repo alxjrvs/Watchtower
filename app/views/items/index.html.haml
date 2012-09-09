@@ -1,29 +1,46 @@
 %h1 Listing items
 
 %table
+  %tr
+    %div.items_block
+      %h4 Unassigned
+      -if unassigned_items.size == 0
+        %p No Unnasigned items! Awesome Job, Team!
+      - else 
+        -  unassigned_items.each do |item|
+          %td item
+          -if current_user
+            %td
+              =link_to "Assign this to me", assign_url(item)
+          -#-if current_user.admin
+            -#%td= link_to 'Show', item
+            -#%td= link_to 'Edit', edit_item_path(item)
+            -#%td= link_to 'Destroy', item, :confirm => 'Are you sure?', :method => :delete
 
-  %tr
-    %h4 Assigned
-    -  assigned_items.each do |item|
-      %td "Assigned to #{item.user.name}"
-      %td= item.date_assigned
-      -if current_user.admin
-        %td= link_to 'Show', item
-        %td= link_to 'Edit', edit_item_path(item)
-        %td= link_to 'Destroy', item, :confirm => 'Are you sure?', :method => :delete
-%br
-  %tr
-    %h4 Unassigned
-    -  unassigned_items.each do |item|
-      %td item
-      -if current_user
+  %br
+    %div.items_block
+      %tr
         %td
-          =link_to "Assign this to me", assign_url(item)
-      -if current_user.admin
-        %td= link_to 'Show', item
-        %td= link_to 'Edit', edit_item_path(item)
-        %td= link_to 'Destroy', item, :confirm => 'Are you sure?', :method => :delete
-
-%br
-
-= link_to 'New Item', new_item_path
+          %h4 Assigned
+          - if assigned_items.size == 0
+            %tr
+              %td
+                %p No assigned Items. Something is terribly wrong.
+          - else
+            %div.assigned_item
+              %tr
+                %td Item Name
+                %td Assigned to
+                %td Date Assigned
+            -  assigned_items.sort_by {|item| item.date_assigned}.each do |item|
+              %div.assigned_item
+                %tr
+                  %td= item.name 
+                  %td= item.user.name
+                  %td= item.date_assigned.strftime('%b %e %Y')
+                -#-if current_user.admin
+                  -#%td= link_to 'Show', item
+                  -#%td= link_to 'Edit', edit_item_path(item)
+                  -#%td= link_to 'Destroy', item, :confirm => 'Are you sure?', :method => :delete
+-if current_user.admin
+  = link_to 'New Item', new_item_path
