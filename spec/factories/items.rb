@@ -6,7 +6,7 @@ FactoryGirl.define do
 
     factory :assigned_item, class: Item  do
       date_assigned  Time.now
-      user User.first
+      user :admin
     end
   end
 end
