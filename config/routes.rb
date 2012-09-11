@@ -8,8 +8,9 @@ Watchtower::Application.routes.draw do
   resources :items
   resources :books
 
-  #match 'items/:id/assign' => 'items#assign', :as => :assign
-  match 'items/:item/assign' => 'items#assign', :as => :assign
+  match 'items/:id/assign' => 'items#assign', :as => :assign
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
