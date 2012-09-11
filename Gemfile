@@ -9,10 +9,9 @@ group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails'
   gem 'rspec'
-  gem 'factory_girl_rspec'
   gem 'rspec-pride'
   gem 'factory_girl_rails'
-  gem 'factory_girl_rspec'
+  gem 'factory_girl_rspec', :git => "https://github.com/chendrix/factory_girl_rspec.git"
   gem 'rspec-subject-extensions'
   gem 'guard-rails'
   gem 'capybara'

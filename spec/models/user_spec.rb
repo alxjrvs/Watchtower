@@ -1,8 +1,13 @@
 require 'spec_helper'
 
 describe User do
-  context "user validations" do
+  context "Should be valid" do
     with :user
-    it { user.should respond_to :name }
+    it { should be_valid }
+  end
+  context "Admins Should be Valid" do
+    with :user, :admin => true
+    it { should be_valid}
+    its(:admin) { should == true}
   end
 end
