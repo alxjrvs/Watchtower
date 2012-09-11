@@ -40,12 +40,14 @@
                 %td Item Name
                 %td Assigned to
                 %td Date Assigned
+                %td Release?
             -  assigned_items.sort_by {|item| item.date_assigned}.each do |item|
               %div.listed_item
                 %tr
                   %td= item.name 
                   %td= item.user.name
                   %td= item.date_assigned.strftime('%b %e %Y')
+                  %td= link_to "Release", deassign_url(item)
                 -#-if current_user.admin
                   -#%td= link_to 'Show', item
                   -#%td= link_to 'Edit', edit_item_path(item)
