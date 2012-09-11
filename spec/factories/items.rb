@@ -1,12 +1,15 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
+require 'spec_helper'
+
 
 FactoryGirl.define do
+  sequence(:rand_title) {|n| RandomWord.adjs.next} 
   factory :item do
-    name "Interview with Jim Zub"
+    name {   "\'" + generate(:rand_title).upcase + "\'" + " Review"}
 
-    factory :assigned_item, class: Item  do
-      date_assigned  Time.now
-      user :admin
+    factory :assigned_item, class: User do
+      user
+      date_assigned Time.now
     end
   end
 end
